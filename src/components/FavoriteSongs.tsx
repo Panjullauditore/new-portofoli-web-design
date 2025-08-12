@@ -7,53 +7,85 @@ const FavoriteSongs = () => {
   const [playingId, setPlayingId] = useState<number | null>(null);
 
   const songs = [
-    {
+        {
       id: 1,
-      title: "Stop The World I Wanna Get Off With You",
-      artist: "Arctic Monkeys",
-      duration: "3:11",
+      title: "20 Min",
+      artist: "Lil Uzi Vert",
+      duration: "3:41",
       color: "from-gray-600 to-gray-800",
-      spotifyUrl: "https://open.spotify.com/track/example1"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0uxSUdBrJy9Un0EYoBowng?si=aa2af6e690794505"
     },
     {
       id: 2,
-      title: "Motel 6",
-      artist: "River Whyless",
-      duration: "3:15",
+      title: "Multo",
+      artist: "Cup of Joe",
+      duration: "3:57",
       color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/track/example2"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/4cBm8rv2B5BJWU2pDaHVbF?si=704c2d9e07544e4b"
     },
     {
       id: 3,
-      title: "Back To Me",
-      artist: "The Marias",
-      duration: "3:34",
+      title: "mejikuhibuniu",
+      artist: "Tenxi, Suise, Jemsi",
+      duration: "3:16",
       color: "from-gray-700 to-gray-900",
-      spotifyUrl: "https://open.spotify.com/track/example3"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/278PwGlIm7MxVTZud18Rx4?si=bea1d2f7d32b4d25"
     },
     {
       id: 4,
-      title: "Cross Your Mind",
-      artist: "Shelly",
-      duration: "3:48",
+      title: "RATHER LIE",
+      artist: "Playboi Carti, The Weeknd",
+      duration: "3:29",
       color: "from-gray-600 to-gray-800",
-      spotifyUrl: "https://open.spotify.com/track/example4"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/68qeaZhtMZ6abrJCYt6nQn?si=da3fd434a70941f1"
     },
     {
       id: 5,
-      title: "해야 (HEYA)",
-      artist: "IVE",
-      duration: "3:09",
+      title: "main-main!",
+      artist: "RYO, Josua Natanael",
+      duration: "2:08",
       color: "from-blue-600 to-blue-800",
-      spotifyUrl: "https://open.spotify.com/track/example5"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/40tAi41702KbnQcWQjSPwZ?si=c2a4f970193442a0"
     },
     {
       id: 6,
-      title: "Infrunami",
-      artist: "Steve Lacy",
-      duration: "2:58",
-      color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/track/example6"
+      title: "最高到達点",
+      artist: "Sekai no Owari",
+      duration: "3:47",
+      color: "from-gray-600 to-gray-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/2hXPmiqKdXcbV0L1VKnTDN?si=e6583f7862c04ec8"
+    },
+    {
+      id: 7,
+      title: "With U",
+      artist: "Napking",
+      duration: "2:47",
+      color: "from-blue-600-to-blue-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/1CsJzYjEbcbaQCBxg5iOCv?si=d6efe6806c194823"
+    },
+    {
+      id: 8,
+      title: "Sorry",
+      artist: "Napking",
+      duration: "3:11",
+      color: "from-white-600 to-white-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0KifLRxrBPUPwpNcJmtCiG?si=ace3c2915d8a4964"
+    },
+    {
+      id: 9,
+      title: "Timeless",
+      artist: "The Weeknd, Playboi Carti",
+      duration: "4:16",
+      color: "from-gray-600 to-gray-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0FIDCNYYjNvPVimz5icugS?si=14d4448c2fec4d41"
+    },
+    {
+      id: 10,
+      title: "M a k e I t T o T h e M o r n i n g",
+      artist: "PARTYNEXTDOOR",
+      duration: "2:48",
+      color: "from-white-600-to-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/12VH4g5pTMZmrUVzfJq7F7?si=3544ea57487745db"
     }
   ];
 

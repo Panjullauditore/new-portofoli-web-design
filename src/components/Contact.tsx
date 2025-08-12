@@ -19,28 +19,28 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "alex@example.com",
-      href: "mailto:alex@example.com"
+      value: "ahmadfahrezir@gmail.com",
+      href: "mailto:ahmadfahrezir@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "+62 857-5091-7426",
+      href: "tel:+6285750917426"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Semarang, Indonesia",
       href: "#"
     }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Mail, href: "mailto:alex@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Panjullauditore", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ahmadfahrezi7/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://twitter.com/ahmadfahrezi7", label: "Twitter" },
+    { icon: Mail, href: "mailto:ahmadfahrezir@gmail.com", label: "Email" },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {

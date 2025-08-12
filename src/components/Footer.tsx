@@ -5,10 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Mail, href: "mailto:alex@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Panjullauditore", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ahmadfahrezi7/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/panjulauditore", label: "Twitter" },
+    { icon: Mail, href: "mailto:ahmadfahrezir@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Alex Portfolio
+              Ahmad FahreziPortfolio
             </h3>
             <p className="text-foreground/60 leading-relaxed">
               Building innovative solutions and creating digital experiences that make a difference.
@@ -78,11 +78,11 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground">Get In Touch</h4>
             <div className="space-y-2">
               <p className="text-foreground/60">
-                <a href="mailto:alex@example.com" className="hover:text-foreground transition-colors duration-300">
-                  alex@example.com
+                <a href="mailto:ahmadfahrezir@gmail.com" className="hover:text-foreground transition-colors duration-300">
+                  ahmadfahrezir@gmail.com
                 </a>
               </p>
-              <p className="text-foreground/60">San Francisco, CA</p>
+              <p className="text-foreground/60">Semarang, Indonesia</p>
             </div>
             <Button 
               size="sm" 
@@ -97,7 +97,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-foreground/60 text-sm">
-            © {currentYear} Alex Portfolio. All rights reserved.
+            © {currentYear} Ahmad Fahrezi. All rights reserved.
           </p>
           <div className="flex items-center text-foreground/60 text-sm">
             <span>Made with</span>

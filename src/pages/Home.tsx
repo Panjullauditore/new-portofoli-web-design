@@ -25,10 +25,10 @@ const Home = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="animate-fade-in">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-                  Alex Portfolio
+                  Ahmad Fahrezi Portfolio
                 </h1>
                 <p className="text-xl md:text-2xl text-foreground/70 mb-8 leading-relaxed max-w-3xl mx-auto">
-                  Computer Science Student passionate about creating beautiful web applications 
+                  Informatics Students passionate about creating beautiful web applications 
                   and exploring the latest technologies
                 </p>
               </div>
@@ -48,17 +48,17 @@ const Home = () => {
               {/* Social Links */}
               <div className="flex justify-center gap-4 animate-fade-in">
                 <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:scale-110 transition-all duration-300">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:scale-110 transition-all duration-300">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:scale-110 transition-all duration-300">
-                  <a href="mailto:alex@example.com">
+                  <a href="mailto:ahmadfahrezir@gmail.com">
                     <Mail className="h-5 w-5" />
                   </a>
                 </Button>

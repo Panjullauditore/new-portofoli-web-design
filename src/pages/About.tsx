@@ -9,8 +9,8 @@ const About = () => {
   const [playingId, setPlayingId] = useState<number | null>(null);
 
   const skills = [
-    "React", "TypeScript", "Node.js", "JavaScript", "HTML/CSS", "PostgreSQL",
-    "Next.js", "TailwindCSS", "Docker", "AWS", "GraphQL", "MongoDB"
+    "React", "TypeScript", "Node.js", "JavaScript", "HTML/CSS", "Laravel",
+    "Next.js", "TailwindCSS", "PHP", "Python", "Figma", "MySQL",
   ];
 
   const interests = [
@@ -21,53 +21,85 @@ const About = () => {
   ];
 
   const songs = [
-    {
+        {
       id: 1,
-      title: "Stop The World I Wanna Get Off With You",
-      artist: "Arctic Monkeys",
-      duration: "3:11",
+      title: "20 Min",
+      artist: "Lil Uzi Vert",
+      duration: "3:41",
       color: "from-gray-600 to-gray-800",
-      spotifyUrl: "https://open.spotify.com/track/example1"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0uxSUdBrJy9Un0EYoBowng?si=aa2af6e690794505"
     },
     {
       id: 2,
-      title: "Motel 6",
-      artist: "River Whyless",
-      duration: "3:15",
+      title: "Multo",
+      artist: "Cup of Joe",
+      duration: "3:57",
       color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/track/example2"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/4cBm8rv2B5BJWU2pDaHVbF?si=704c2d9e07544e4b"
     },
     {
       id: 3,
-      title: "Back To Me",
-      artist: "The Marias",
-      duration: "3:34",
+      title: "mejikuhibuniu",
+      artist: "Tenxi, Suise, Jemsi",
+      duration: "3:16",
       color: "from-gray-700 to-gray-900",
-      spotifyUrl: "https://open.spotify.com/track/example3"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/278PwGlIm7MxVTZud18Rx4?si=bea1d2f7d32b4d25"
     },
     {
       id: 4,
-      title: "Cross Your Mind",
-      artist: "Shelly",
-      duration: "3:48",
+      title: "RATHER LIE",
+      artist: "Playboi Carti, The Weeknd",
+      duration: "3:29",
       color: "from-gray-600 to-gray-800",
-      spotifyUrl: "https://open.spotify.com/track/example4"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/68qeaZhtMZ6abrJCYt6nQn?si=da3fd434a70941f1"
     },
     {
       id: 5,
-      title: "해야 (HEYA)",
-      artist: "IVE",
-      duration: "3:09",
+      title: "main-main!",
+      artist: "RYO, Josua Natanael",
+      duration: "2:08",
       color: "from-blue-600 to-blue-800",
-      spotifyUrl: "https://open.spotify.com/track/example5"
+      spotifyUrl: "https://open.spotify.com/intl-id/track/40tAi41702KbnQcWQjSPwZ?si=c2a4f970193442a0"
     },
     {
       id: 6,
-      title: "Infrunami",
-      artist: "Steve Lacy",
-      duration: "2:58",
-      color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/track/example6"
+      title: "最高到達点",
+      artist: "Sekai no Owari",
+      duration: "3:47",
+      color: "from-gray-600 to-gray-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/2hXPmiqKdXcbV0L1VKnTDN?si=e6583f7862c04ec8"
+    },
+    {
+      id: 7,
+      title: "With U",
+      artist: "Napking",
+      duration: "2:47",
+      color: "from-blue-600-to-blue-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/1CsJzYjEbcbaQCBxg5iOCv?si=d6efe6806c194823"
+    },
+    {
+      id: 8,
+      title: "Sorry",
+      artist: "Napking",
+      duration: "3:11",
+      color: "from-white-600 to-white-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0KifLRxrBPUPwpNcJmtCiG?si=ace3c2915d8a4964"
+    },
+    {
+      id: 9,
+      title: "Timeless",
+      artist: "The Weeknd, Playboi Carti",
+      duration: "4:16",
+      color: "from-gray-600 to-gray-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/0FIDCNYYjNvPVimz5icugS?si=14d4448c2fec4d41"
+    },
+    {
+      id: 10,
+      title: "M a k e I t T o T h e M o r n i n g",
+      artist: "PARTYNEXTDOOR",
+      duration: "2:48",
+      color: "from-white-600-to-800",
+      spotifyUrl: "https://open.spotify.com/intl-id/track/12VH4g5pTMZmrUVzfJq7F7?si=3544ea57487745db"
     }
   ];
 
@@ -98,30 +130,30 @@ const About = () => {
                       <div className="text-primary/60 text-6xl">👤</div>
                     </div>
                     
-                    <h2 className="text-2xl font-bold mb-2 text-foreground">Alex Portfolio</h2>
-                    <p className="text-foreground/70 mb-4">Computer Science Student</p>
+                    <h2 className="text-2xl font-bold mb-2 text-foreground">Ahmad Fahrezi Portfolio</h2>
+                    <p className="text-foreground/70 mb-4">Informatics Students</p>
                     
                     {/* Social Links */}
                     <div className="flex justify-center gap-2 mb-6">
                       <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
                       <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer">
                           <Linkedin className="h-4 w-4" />
                         </a>
                       </Button>
                       <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="mailto:alex@example.com">
+                        <a href="mailto:ahmadfahrezir@gmail.com">
                           <Mail className="h-4 w-4" />
                         </a>
                       </Button>
                     </div>
 
                     <p className="text-foreground/60 text-sm leading-relaxed">
-                      Email me for any inquiries at alex@example.com
+                      Email me for any inquiries at ahmadfahrezir@gmail.com
                     </p>
                   </div>
                 </Card>
@@ -131,7 +163,7 @@ const About = () => {
               <div className="lg:col-span-2 space-y-8">
                 <div className="animate-fade-in">
                   <p className="text-lg text-foreground/70 leading-relaxed mb-8">
-                    Hi, you can call me Alex. I'm a passionate Computer Science student who loves creating 
+                    Hi, you can call me Rezi. I'm a passionate Informatics student who loves creating 
                     beautiful web applications and learning new technologies. When I'm not coding, you'll 
                     find me listening to music or exploring creative projects.
                   </p>
@@ -199,8 +231,7 @@ const About = () => {
                 My Favorite Songs
               </h3>
               <p className="text-center text-foreground/70 mb-8">
-                Aside of the nitty gritty, I love listening to Clairo, Slow Pulp, Arctic Monkeys, The Marias, IVE, NewJeans, 
-                Steve Lacy, Mac DeMarco, Malcolm Todd, Faye Webster, and much more.
+                Aside of the nitty gritty, I love listening to aespa, Le Sserafim, ILLIT, Hearts2Hearts, Kendrick Lamar, NewJeans, Young Thug, and much more.
               </p>
               
               <div className="grid md:grid-cols-2 gap-4">

@@ -4,10 +4,10 @@ import heroImage from '@/assets/hero-planet.jpg';
 
 const Hero = () => {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Panjullauditore", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ahmadfahrezi7/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/rezzinhere7/", label: "Instagram" },
+    { icon: Mail, href: "mailto:ahmadfahrezir@gmail.com", label: "Email" },
   ];
 
   return (
@@ -56,11 +56,11 @@ const Hero = () => {
           {/* Main Content */}
           <div className="space-y-6">
             <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
-              Hi, I'm Alex.
+              Hi, I'm Rezi.
             </h1>
             
             <p className="text-xl lg:text-2xl text-foreground/80 font-medium">
-              Full-Stack Developer | Computer Science Student @ Tech University
+              Full-Stack Developer | Informatics Students @ Diponegoro University
             </p>
             
             <p className="text-lg text-foreground/60 leading-relaxed max-w-md">

@@ -50,27 +50,27 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "alex@example.com",
-      href: "mailto:alex@example.com"
+      details: "ahmadfahrezir@gmail.com",
+      href: "mailto:ahmadfahrezir@gmail.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      details: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      details: "+62 857-5091-7426",
+      href: "tel:+6285750917426"
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "San Francisco, CA",
+      details: "Semarang, Indonesia",
       href: null
     }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Github, href: "https://github.com/Panjullauditore", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ahmadfahrezi7/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/panjulauditore", label: "Twitter" },
   ];
 
   return (
@@ -252,7 +252,7 @@ const Contact = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Best time to reach:</span>
-                        <span className="text-foreground">9 AM - 6 PM PST</span>
+                        <span className="text-foreground">9 AM - 6 PM WIB</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span>Status:</span>
