@@ -60,12 +60,12 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl lg:text-2xl text-foreground/80 font-medium">
-              Full-Stack Developer | AI Enthusiast @ Tech University
+              Full-Stack Developer | Computer Science Student @ Tech University
             </p>
             
             <p className="text-lg text-foreground/60 leading-relaxed max-w-md">
-              I build innovative web applications, explore machine learning, 
-              and create digital experiences that make a difference.
+              I build modern web applications, love creating beautiful user experiences, 
+              and enjoy exploring new technologies and music.
             </p>
           </div>
 

@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
+import FavoriteSongs from '@/components/FavoriteSongs';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -22,7 +23,7 @@ const Index = () => {
       { threshold: 0.3 }
     );
 
-    const sections = ['home', 'about', 'projects', 'experience', 'contact'];
+    const sections = ['home', 'about', 'projects', 'music', 'experience', 'contact'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -37,6 +38,7 @@ const Index = () => {
       <Hero />
       <About />
       <Projects />
+      <FavoriteSongs />
       <Experience />
       <Contact />
       <Footer />

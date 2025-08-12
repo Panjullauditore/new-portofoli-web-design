@@ -4,15 +4,15 @@ import { Code, Palette, Rocket, Heart } from 'lucide-react';
 
 const About = () => {
   const skills = [
-    "React", "TypeScript", "Node.js", "Python", "AI/ML", "PostgreSQL",
+    "React", "TypeScript", "Node.js", "JavaScript", "HTML/CSS", "PostgreSQL",
     "Next.js", "TailwindCSS", "Docker", "AWS", "GraphQL", "MongoDB"
   ];
 
   const interests = [
     { icon: Code, title: "Full-Stack Development", description: "Building scalable web applications with modern technologies" },
-    { icon: Rocket, title: "AI & Machine Learning", description: "Exploring artificial intelligence and neural networks" },
-    { icon: Palette, title: "UI/UX Design", description: "Creating beautiful and intuitive user experiences" },
-    { icon: Heart, title: "Open Source", description: "Contributing to the developer community" }
+    { icon: Rocket, title: "Frontend Technologies", description: "Creating responsive and interactive user interfaces" },
+    { icon: Palette, title: "UI/UX Design", description: "Designing beautiful and intuitive user experiences" },
+    { icon: Heart, title: "Music & Creativity", description: "Finding inspiration through music and creative expression" }
   ];
 
   return (
@@ -25,8 +25,8 @@ const About = () => {
               About Me
             </h2>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              I'm a passionate developer who loves creating innovative solutions and learning new technologies. 
-              When I'm not coding, you'll find me exploring the latest in AI or contributing to open source projects.
+              I'm a passionate developer who loves creating beautiful web applications and learning new technologies. 
+              When I'm not coding, you'll find me listening to music or exploring creative projects.
             </p>
           </div>
 

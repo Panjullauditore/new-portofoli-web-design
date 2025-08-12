@@ -7,22 +7,22 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "AI Chat Assistant",
-      description: "An intelligent chatbot powered by OpenAI GPT that provides contextual responses and learns from conversations.",
-      image: "🤖",
-      icon: Bot,
-      technologies: ["React", "Node.js", "OpenAI API", "MongoDB"],
+      title: "E-commerce Platform",
+      description: "A full-featured e-commerce website with shopping cart, user authentication, payment integration, and admin dashboard.",
+      image: "🛒",
+      icon: Globe,
+      technologies: ["React", "Node.js", "Stripe API", "MongoDB"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: true
     },
     {
       id: 2,
-      title: "Smart Expense Tracker",
-      description: "A mobile-first web app that uses machine learning to categorize expenses and provide spending insights.",
-      image: "💰",
-      icon: Smartphone,
-      technologies: ["React Native", "Python", "TensorFlow", "PostgreSQL"],
+      title: "Recipe Sharing Platform",
+      description: "A social platform where users can share recipes, rate dishes, and create meal plans with shopping lists.",
+      image: "🍳",
+      icon: Globe,
+      technologies: ["React", "Express.js", "PostgreSQL", "Cloudinary"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: true
@@ -51,11 +51,11 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: "Weather Analytics Dashboard",
-      description: "A data visualization dashboard that analyzes weather patterns using historical data and ML predictions.",
+      title: "Weather Dashboard",
+      description: "A responsive weather application with location search, forecasts, and beautiful weather animations.",
       image: "🌤️",
       icon: Globe,
-      technologies: ["Vue.js", "D3.js", "Python", "FastAPI"],
+      technologies: ["Vue.js", "D3.js", "Weather API", "CSS3"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: false
