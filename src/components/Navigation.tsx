@@ -34,6 +34,12 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Spacer untuk desktop navigation */}
+      <div className="hidden md:block h-24"></div>
+      
+      {/* Spacer untuk mobile navigation */}
+      <div className="block md:hidden h-20"></div>
+
       {/* Desktop Navigation */}
       <nav className={cn(
         "fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 hidden md:block",
