@@ -4,6 +4,9 @@ import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 const Experience = () => {
+  // Toggle blur - set ke false untuk menghilangkan blur
+  const isBlurred = true;
+  
   const experiences = [
     {
       id: 1,
@@ -122,11 +125,11 @@ const Experience = () => {
                         <CardHeader>
                           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                             <div>
-                              <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">
+                              <CardTitle className={`text-xl text-foreground group-hover:text-primary transition-colors duration-300 ${isBlurred ? 'blur-sm' : ''}`}>
                                 {experience.title}
                               </CardTitle>
                               <div className="flex items-center gap-2 mt-2">
-                                <h3 className="text-lg font-semibold text-foreground/80">
+                                <h3 className={`text-lg font-semibold text-foreground/80 ${isBlurred ? 'blur-sm' : ''}`}>
                                   {experience.company}
                                 </h3>
                                 {experience.website && (
@@ -134,19 +137,19 @@ const Experience = () => {
                                     href={experience.website} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="text-primary hover:text-primary/80 transition-colors"
+                                    className={`text-primary hover:text-primary/80 transition-colors ${isBlurred ? 'blur-sm' : ''}`}
                                   >
                                     <ExternalLink className="h-4 w-4" />
                                   </a>
                                 )}
                               </div>
                             </div>
-                            <Badge className={`${getTypeColor(experience.type)} border`}>
+                            <Badge className={`${getTypeColor(experience.type)} border ${isBlurred ? 'blur-sm' : ''}`}>
                               {experience.type}
                             </Badge>
                           </div>
 
-                          <div className="flex flex-col sm:flex-row gap-2 text-sm text-foreground/60">
+                          <div className={`flex flex-col sm:flex-row gap-2 text-sm text-foreground/60 ${isBlurred ? 'blur-sm' : ''}`}>
                             <div className="flex items-center gap-1">
                               <Calendar className="h-4 w-4" />
                               <span>{experience.period}</span>
@@ -159,16 +162,18 @@ const Experience = () => {
                         </CardHeader>
 
                         <CardContent>
-                          <ul className="space-y-2 mb-6">
-                            {experience.description.map((item, idx) => (
-                              <li key={idx} className="text-foreground/70 flex items-start gap-2">
-                                <span className="text-primary mt-1.5">•</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <div className={`${isBlurred ? 'blur-sm' : ''}`}>
+                            <ul className="space-y-2 mb-6">
+                              {experience.description.map((item, idx) => (
+                                <li key={idx} className="text-foreground/70 flex items-start gap-2">
+                                  <span className="text-primary mt-1.5">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
 
-                          <div className="flex flex-wrap gap-2">
+                          <div className={`flex flex-wrap gap-2 ${isBlurred ? 'blur-sm' : ''}`}>
                             {experience.technologies.map((tech) => (
                               <Badge 
                                 key={tech} 
