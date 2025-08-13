@@ -201,7 +201,7 @@ const Experience = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      
     </div>
   );
 };

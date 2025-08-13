@@ -219,7 +219,7 @@ const Projects = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      
     </div>
   );
 };
