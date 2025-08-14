@@ -17,7 +17,7 @@ const About = () => {
 
   const skills = [
     "React", "TypeScript", "Node.js", "JavaScript", "HTML/CSS", "Laravel",
-    "Next.js", "TailwindCSS", "PHP", "Python", "Figma", "MySQL",
+    "Next.js", "TailwindCSS", "PHP", "Python", "Figma", "MySQL", 
   ];
 
   const interests = [
@@ -168,12 +168,16 @@ const About = () => {
               <div className="lg:col-span-1">
                 <Card className="bg-white/5 border-gray-800/50 p-6 backdrop-blur-sm">
                   <div className="text-center">
-                    {/* Profile Image Placeholder */}
-                    <div className="w-48 h-48 mx-auto mb-6 rounded-2xl bg-gradient-to-r to-blue-600/20 flex items-center justify-center border border-gray-800/20">
-                      <div className="text-gray-400 text-6xl">👤</div>
+                    {/* Profile Image */}
+                    <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border border-gray-800/20">
+                      <img 
+                        src="/images/foto-gw.jpg" 
+                        alt="Profile Picture"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     
-                    <h2 className="text-2xl font-bold mb-2">Ahmad Fahrezi Portfolio</h2>
+                    <h2 className="text-2xl font-bold mb-2">Ahmad Fahrezi</h2>
                     <p className="text-gray-400 mb-4">Informatics Students</p>
                     
                     {/* Social Links */}
@@ -245,11 +249,32 @@ const About = () => {
               </div>
             </div>
 
+            {/* Skills Section */}
+            <Card className="border-border/50 animate-fade-in mb-16">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                  Skills & Technologies
+                </h3>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {skills.map((skill, index) => (
+                    <Badge 
+                      key={skill} 
+                      variant="secondary" 
+                      className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-blue-500/10 hover:border-blue-400/50 hover:text-blue-300 hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer animate-scale-in group"
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                    >
+                      <span className="group-hover:animate-pulse">{skill}</span>
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
             {/* My Favorite Songs */}
             <div className="mb-16">
               <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-primary bg-clip-text text-transparent"> My Favorite Songs </h3>
               <p className="text-center text-gray-400 mb-8">
-                Aside of the nitty gritty, I love listening to aespa, Le Sserafim, ILLIT, Hearts2Hearts, Kendrick Lamar, NewJeans, Young Thug, and much more.
+                When I step away from coding, music becomes my sanctuary. My playlist ranges from aespa, Le Sserafim, ILLIT, Hearts2Hearts, and NewJeans to Kendrick Lamar, Young Thug, and much more - each artist bringing a different energy to my creative process.
               </p>
               
               <div className="grid md:grid-cols-2 gap-4">

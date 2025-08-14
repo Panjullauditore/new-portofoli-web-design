@@ -58,25 +58,25 @@ const About = () => {
           </div>
 
           {/* Skills Section */}
-          <Card className="bg-gradient-card border-border/50 animate-fade-in">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 text-center text-foreground">
-                Skills & Technologies
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {skills.map((skill, index) => (
-                  <Badge 
-                    key={skill} 
-                    variant="secondary" 
-                    className="px-4 py-2 text-sm font-medium bg-muted/50 hover:bg-primary/20 hover:text-primary transition-all duration-300 hover:scale-105 animate-scale-in"
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+            <Card className="border-border/50 animate-fade-in mb-16">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                  Skills & Technologies
+                </h3>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {skills.map((skill, index) => (
+                    <Badge 
+                      key={skill} 
+                      variant="secondary" 
+                      className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-blue-500/10 hover:border-blue-400/50 hover:text-blue-300 hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer animate-scale-in group"
+                      style={{ animationDelay: `${index * 0.05}s` }}
+                    >
+                      <span className="group-hover:animate-pulse">{skill}</span>
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
           {/* Personal Touch */}
           <div className="text-center mt-16 animate-fade-in">
