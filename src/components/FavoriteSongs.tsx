@@ -32,16 +32,15 @@ const FavoriteSongs = () => {
       albumArt: "https://i.scdn.co/image/ab67616d0000b273400b690ac915aa2bb4e0fa8a",
       previewUrl: "https://p.scdn.co/mp3-preview/05c463c94fa2c3c0e6b7ce9b11dd45a66ba1423b?cid=774b29d4f13844c495f206cafdad9c86_0"
     },
-    {
+     {
       id: "4cBm8rv2B5BJWU2pDaHVbF",
-      title: "Multo",
-      artist: "Cup of Joe",
-      duration: "3:57",
+      title: "Headshot",
+      artist: "Ardy Minaj",
+      duration: "2:05",
       color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/4cBm8rv2B5BJWU2pDaHVbF?si=704c2d9e07544e4b",
-      spotifyEmbed: "https://open.spotify.com/embed/track/4cBm8rv2B5BJWU2pDaHVbF", 
+      spotifyUrl: "https://open.spotify.com/intl-id/track/56BG3JPRrvRFLsnk4DvOg4?si=77ee81e286a44595",
+      spotifyEmbed: "https://open.spotify.com/embed/track/56BG3JPRrvRFLsnk4DvOg4?utm_source=oembed", 
       albumArt: "https://i.scdn.co/image/ab67616d0000b273b024bb5b39e3bad5fbe7acb6",
-      previewUrl: "https://p.scdn.co/mp3-preview/d3b0e1ba2f9e8daef0cc25bfefac69c2aa1c41c8?cid=774b29d4f13844c495f206cafdad9c86_0"
     },
     {
       id: "278PwGlIm7MxVTZud18Rx4",

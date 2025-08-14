@@ -40,12 +40,12 @@ const About = () => {
     },
     {
       id: "4cBm8rv2B5BJWU2pDaHVbF",
-      title: "Multo",
-      artist: "Cup of Joe",
-      duration: "3:57",
+      title: "Headshot",
+      artist: "Ardy Minaj",
+      duration: "2:05",
       color: "from-red-600 to-red-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/4cBm8rv2B5BJWU2pDaHVbF?si=704c2d9e07544e4b",
-      spotifyEmbed: "https://open.spotify.com/embed/track/4cBm8rv2B5BJWU2pDaHVbF", 
+      spotifyUrl: "https://open.spotify.com/intl-id/track/56BG3JPRrvRFLsnk4DvOg4?si=77ee81e286a44595",
+      spotifyEmbed: "https://open.spotify.com/embed/track/56BG3JPRrvRFLsnk4DvOg4?utm_source=oembed", 
       albumArt: "https://i.scdn.co/image/ab67616d0000b273b024bb5b39e3bad5fbe7acb6",
     },
     {
