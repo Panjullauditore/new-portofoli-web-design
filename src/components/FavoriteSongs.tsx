@@ -38,76 +38,7 @@ const FavoriteSongs = () => {
       albumArt: "https://i.scdn.co/image/ab67616d0000b273c6bf39cbfbfdbfe5aa966f7c",
       previewUrl: null
     },
-    {
-      id: 4,
-      title: "RATHER LIE",
-      artist: "Playboi Carti, The Weeknd",
-      duration: "3:29",
-      color: "from-blue-600 to-blue-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/68qeaZhtMZ6abrJCYt6nQn?si=da3fd434a70941f1",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273c4b094b56f4efed020847129",
-      previewUrl: null
-    },
-    {
-      id: 5,
-      title: "main-main!",
-      artist: "RYO, Josua Natanael",
-      duration: "2:08",
-      color: "from-green-600 to-green-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/40tAi41702KbnQcWQjSPwZ?si=c2a4f970193442a0",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273b2e8e1f4b3e9b8f1a3c4d5e6",
-      previewUrl: null
-    },
-    {
-      id: 6,
-      title: "最高到達点",
-      artist: "Sekai no Owari",
-      duration: "3:47",
-      color: "from-yellow-600 to-yellow-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/2hXPmiqKdXcbV0L1VKnTDN?si=e6583f7862c04ec8",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b2737e9c6c1b9b7e1f2a3e8d9c0b",
-      previewUrl: null
-    },
-    {
-      id: 7,
-      title: "With U",
-      artist: "Napking",
-      duration: "2:47",
-      color: "from-teal-600 to-teal-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/1CsJzYjEbcbaQCBxg5iOCv?si=d6efe6806c194823",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273f1e2d3c4b5a6e7f8g9h0i1j2",
-      previewUrl: null
-    },
-    {
-      id: 8,
-      title: "Sorry",
-      artist: "Napking",
-      duration: "3:11",
-      color: "from-pink-600 to-pink-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/0KifLRxrBPUPwpNcJmtCiG?si=ace3c2915d8a4964",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273k2l3m4n5o6p7q8r9s0t1u2v3",
-      previewUrl: null
-    },
-    {
-      id: 9,
-      title: "Timeless",
-      artist: "The Weeknd, Playboi Carti",
-      duration: "4:16",
-      color: "from-indigo-600 to-indigo-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/0FIDCNYYjNvPVimz5icugS?si=14d4448c2fec4d41",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273w3x4y5z6a7b8c9d0e1f2g3h4",
-      previewUrl: null
-    },
-    {
-      id: 10,
-      title: "M a k e I t T o T h e M o r n i n g",
-      artist: "PARTYNEXTDOOR",
-      duration: "2:48",
-      color: "from-orange-600 to-orange-800",
-      spotifyUrl: "https://open.spotify.com/intl-id/track/12VH4g5pTMZmrUVzfJq7F7?si=3544ea57487745db",
-      albumArt: "https://i.scdn.co/image/ab67616d0000b273i4j5k6l7m8n9o0p1q2r3s4t5",
-      previewUrl: null
-    }
+    // ... other songs
   ];
 
   useEffect(() => {
