@@ -2,11 +2,18 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Code, Palette, Rocket, Heart, Play, Pause, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useSpotifyPlayer } from '@/hooks/useSpotifyPlayer';
 
 const About = () => {
-  const [playingId, setPlayingId] = useState<number | null>(null);
-  const audioRefs = useRef<{ [key: number]: HTMLAudioElement }>({});
+  const { 
+    playingId, 
+    currentTime, 
+    duration, 
+    isLoading, 
+    playTrack, 
+    pauseTrack,
+    seekTo 
+  } = useSpotifyPlayer();
 
   const skills = [
     "React", "TypeScript", "Node.js", "JavaScript", "HTML/CSS", "Laravel",
@@ -22,7 +29,7 @@ const About = () => {
 
   const songs = [
     {
-      id: 1,
+      id: "0uxSUdBrJy9Un0EYoBowng",
       title: "20 Min",
       artist: "Lil Uzi Vert",
       duration: "3:41",
@@ -32,7 +39,7 @@ const About = () => {
       previewUrl: "https://p.scdn.co/mp3-preview/05c463c94fa2c3c0e6b7ce9b11dd45a66ba1423b?cid=774b29d4f13844c495f206cafdad9c86_0"
     },
     {
-      id: 2,
+      id: "4cBm8rv2B5BJWU2pDaHVbF",
       title: "Multo",
       artist: "Cup of Joe",
       duration: "3:57",
@@ -42,27 +49,27 @@ const About = () => {
       previewUrl: "https://p.scdn.co/mp3-preview/d3b0e1ba2f9e8daef0cc25bfefac69c2aa1c41c8?cid=774b29d4f13844c495f206cafdad9c86_0"
     },
     {
-      id: 3,
+      id: "278PwGlIm7MxVTZud18Rx4",
       title: "mejikuhibuniu",
       artist: "Tenxi, Suise, Jemsi",
       duration: "3:16",
       color: "from-gray-600 to-gray-800",
       spotifyUrl: "https://open.spotify.com/intl-id/track/278PwGlIm7MxVTZud18Rx4?si=bea1d2f7d32b4d25",
       albumArt: "https://i.scdn.co/image/ab67616d0000b273c6bf39cbfbfdbfe5aa966f7c",
-      previewUrl: "https://p.scdn.co/mp3-preview/e8b0f1d2c3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8?cid=774b29d4f13844c495f206cafdad9c86_0"
+      previewUrl: null
     },
     {
-      id: 4,
+      id: "68qeaZhtMZ6abrJCYt6nQn",
       title: "RATHER LIE",
       artist: "Playboi Carti, The Weeknd",
       duration: "3:29",
       color: "from-blue-600 to-blue-800",
       spotifyUrl: "https://open.spotify.com/intl-id/track/68qeaZhtMZ6abrJCYt6nQn?si=da3fd434a70941f1",
       albumArt: "https://i.scdn.co/image/ab67616d0000b273c4b094b56f4efed020847129",
-      previewUrl: "https://p.scdn.co/mp3-preview/f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8?cid=774b29d4f13844c495f206cafdad9c86_0"
+      previewUrl: null
     },
     {
-      id: 5,
+      id: "40tAi41702KbnQcWQjSPwZ",
       title: "main-main!",
       artist: "RYO, Josua Natanael",
       duration: "2:08",
@@ -72,7 +79,7 @@ const About = () => {
       previewUrl: null
     },
     {
-      id: 6,
+      id: "2hXPmiqKdXcbV0L1VKnTDN",
       title: "最高到達点",
       artist: "Sekai no Owari",
       duration: "3:47",
@@ -82,7 +89,7 @@ const About = () => {
       previewUrl: null
     },
     {
-      id: 7,
+      id: "1CsJzYjEbcbaQCBxg5iOCv",
       title: "With U",
       artist: "Napking",
       duration: "2:47",
@@ -92,7 +99,7 @@ const About = () => {
       previewUrl: null
     },
     {
-      id: 8,
+      id: "0KifLRxrBPUPwpNcJmtCiG",
       title: "Sorry",
       artist: "Napking",
       duration: "3:11",
@@ -102,7 +109,7 @@ const About = () => {
       previewUrl: null
     },
     {
-      id: 9,
+      id: "0FIDCNYYjNvPVimz5icugS",
       title: "Timeless",
       artist: "The Weeknd, Playboi Carti",
       duration: "4:16",
@@ -112,7 +119,7 @@ const About = () => {
       previewUrl: null
     },
     {
-      id: 10,
+      id: "12VH4g5pTMZmrUVzfJq7F7",
       title: "M a k e I t T o T h e M o r n i n g",
       artist: "PARTYNEXTDOOR",
       duration: "2:48",
@@ -123,47 +130,19 @@ const About = () => {
     }
   ];
 
-  useEffect(() => {
-    songs.forEach(song => {
-      if (song.previewUrl && !audioRefs.current[song.id]) {
-        audioRefs.current[song.id] = new Audio(song.previewUrl);
-        audioRefs.current[song.id].volume = 0.5;
-      }
-    });
+  const handlePlayPause = (song: any) => {
+    playTrack(song.id, song.previewUrl);
+  };
 
-    return () => {
-      Object.values(audioRefs.current).forEach(audio => {
-        audio.pause();
-        audio.src = '';
-      });
-    };
-  }, []);
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
 
-  const togglePlay = (id: number) => {
-    const audio = audioRefs.current[id];
-    
-    if (playingId === id) {
-      // Stop current song
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-      setPlayingId(null);
-    } else {
-      // Stop any currently playing song
-      if (playingId && audioRefs.current[playingId]) {
-        audioRefs.current[playingId].pause();
-        audioRefs.current[playingId].currentTime = 0;
-      }
-      
-      // Play new song if it has preview
-      if (audio) {
-        audio.play().catch(error => {
-          console.log('Audio play failed:', error);
-        });
-      }
-      setPlayingId(id);
-    }
+  const getProgressPercentage = () => {
+    if (duration === 0) return 0;
+    return (currentTime / duration) * 100;
   };
 
   return (
@@ -334,28 +313,43 @@ const About = () => {
                             <Button
                               variant="ghost"
                               size="icon"
-                              onClick={() => togglePlay(song.id)}
+                              onClick={() => handlePlayPause(song)}
+                              disabled={isLoading}
                               className="bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 h-8 w-8"
                             >
-                              {playingId === song.id ? (
+                              {isLoading ? (
+                                <div className="w-3 h-3 border border-white/60 border-t-white rounded-full animate-spin" />
+                              ) : playingId === song.id ? (
                                 <Pause className="h-3 w-3" />
                               ) : (
                                 <Play className="h-3 w-3 ml-0.5" />
                               )}
                             </Button>
                             
-                            <div className="flex-1 bg-white/20 rounded-full h-1 overflow-hidden">
+                            <div 
+                              className="flex-1 bg-white/20 rounded-full h-1 overflow-hidden cursor-pointer"
+                              onClick={(e) => {
+                                if (duration > 0) {
+                                  const rect = e.currentTarget.getBoundingClientRect();
+                                  const clickX = e.clientX - rect.left;
+                                  const newTime = (clickX / rect.width) * duration;
+                                  seekTo(newTime);
+                                }
+                              }}
+                            >
                               <div 
                                 className="bg-white h-full rounded-full transition-all duration-300"
                                 style={{ 
-                                  width: playingId === song.id ? '45%' : '0%',
-                                  transition: playingId === song.id ? 'width 1s linear' : 'width 0.3s ease'
+                                  width: `${getProgressPercentage()}%`
                                 }}
                               />
                             </div>
                             
                             <span className="text-white/80 text-xs font-medium">
-                              {song.duration}
+                              {playingId === song.id && duration > 0 
+                                ? `${formatTime(currentTime)} / ${formatTime(duration)}`
+                                : song.duration
+                              }
                             </span>
                           </div>
 
