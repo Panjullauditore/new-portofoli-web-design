@@ -16,7 +16,7 @@ serve(async (req) => {
     
     // Get Spotify credentials from environment
     const clientId = '74cf173374bc43bd872d9b1a9078d905'
-    const clientSecret = Deno.env.get('SPOTIFY_CLIENT_SECRET')
+    const clientSecret = Deno.env.get('7c99c3dce4624cd9b723c5027189cb57')
     
     if (!clientSecret) {
       throw new Error('Spotify client secret not found')
