@@ -43,7 +43,7 @@ const Home = () => {
                 </h1>
                 
                 <p className="text-lg md:text-xl text-foreground/70 mb-2">
-                  Informatics Student | Web Developer
+                  Informatics Student | FullStack Developer
                 </p>
                 
                 <div className="text-lg md:text-xl text-foreground/70 mb-8">
