@@ -34,7 +34,7 @@ const Home = () => {
                   </Button>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
                     Hi, I'm Ahmad Fahrezi.
                   </span>
