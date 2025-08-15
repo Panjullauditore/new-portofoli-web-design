@@ -1,5 +1,5 @@
 # Pemberitahuan
-Project ini dalam masa pengembangan oleh developer asal ngawi
+Project baru 75% berjalan
 
 ## Pesan Developer
-Sabar woi lah, kemungkinan pertengahan bulan depan baru kelar
+Kanjut
