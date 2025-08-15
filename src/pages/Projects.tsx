@@ -5,6 +5,9 @@ import { ExternalLink, Github, Star } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 const Projects = () => {
+  // Toggle blur - set ke false untuk menghilangkan blur
+  const isBlurred = true;
+  
   const projects = [
     {
       id: 1,
@@ -72,12 +75,12 @@ const Projects = () => {
   const otherProjects = projects.filter(project => !project.featured);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
       <main className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-16 animate-fade-in">
+            <div className={`text-center mb-16 animate-fade-in ${isBlurred ? 'blur-sm' : ''}`}>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
                 My Projects
               </h1>
@@ -87,7 +90,7 @@ const Projects = () => {
             </div>
 
             {/* Featured Projects */}
-            <div className="mb-20">
+            <div className={`mb-20 ${isBlurred ? 'blur-sm' : ''}`}>
               <h2 className="text-2xl font-bold mb-8 text-foreground">Featured Projects</h2>
               <div className="grid lg:grid-cols-2 gap-8">
                 {featuredProjects.map((project, index) => (
@@ -154,7 +157,7 @@ const Projects = () => {
             </div>
 
             {/* Other Projects */}
-            <div>
+            <div className={`${isBlurred ? 'blur-sm' : ''}`}>
               <h2 className="text-2xl font-bold mb-8 text-foreground">Other Projects</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {otherProjects.map((project, index) => (
@@ -219,6 +222,21 @@ const Projects = () => {
           </div>
         </div>
       </main>
+
+      {/* Coming Soon Overlay */}
+      {isBlurred && (
+        <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-sm">
+          <div className="text-center p-8 bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl shadow-card max-w-md mx-auto">
+            <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+              Coming Soon!
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              The projects page is currently under development.
+              It will soon be filled with new projects and a complete portfolio.
+            </p>
+          </div>
+        </div>
+      )}
       
     </div>
   );

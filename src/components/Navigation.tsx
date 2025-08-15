@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { Label } from 'recharts';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,6 +15,7 @@ const Navigation = () => {
     { label: 'About', href: '/about' },
     { label: 'Projects', href: '/projects' },
     { label: 'Experience', href: '/experience' },
+    { label: 'Achievement', href: '/achievement' },
     { label: 'Contact', href: '/contact' },
   ];
 

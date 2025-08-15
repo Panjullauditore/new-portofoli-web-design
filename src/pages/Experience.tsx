@@ -90,12 +90,12 @@ const Experience = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
       <main className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-16 animate-fade-in">
+            <div className={`text-center mb-16 animate-fade-in ${isBlurred ? 'blur-sm' : ''}`}>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
                 Experience
               </h1>
@@ -105,7 +105,7 @@ const Experience = () => {
             </div>
 
             {/* Timeline */}
-            <div className="relative">
+            <div className={`relative ${isBlurred ? 'blur-sm' : ''}`}>
               {/* Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent" />
 
@@ -193,7 +193,7 @@ const Experience = () => {
             </div>
 
             {/* Additional Info */}
-            <div className="text-center mt-16 animate-fade-in">
+            <div className={`text-center mt-16 animate-fade-in ${isBlurred ? 'blur-sm' : ''}`}>
               <div className="bg-gradient-card border border-border/50 rounded-2xl p-8 max-w-2xl mx-auto">
                 <h3 className="text-xl font-bold mb-4 text-foreground">Always Learning</h3>
                 <p className="text-foreground/70 leading-relaxed">
@@ -206,6 +206,21 @@ const Experience = () => {
           </div>
         </div>
       </main>
+
+      {/* Coming Soon Overlay */}
+      {isBlurred && (
+        <div className="absolute inset-0 flex items-center justify-center bg-background/20 backdrop-blur-sm">
+          <div className="text-center p-8 bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl shadow-card max-w-md mx-auto">
+            <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+              Coming Soon!
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              The experience page is currently under development.
+              It will soon be filled with new work experiences and projects.
+            </p>
+          </div>
+        </div>
+      )}
       
     </div>
   );
