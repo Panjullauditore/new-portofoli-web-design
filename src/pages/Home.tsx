@@ -35,11 +35,9 @@ const Home = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  <TypingAnimation 
-                    text="Hi, I'm Ahmad Fahrezi." 
-                    speed={100}
-                    className="bg-gradient-primary bg-clip-text text-transparent"
-                  />
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">
+                    Hi, I'm Ahmad Fahrezi.
+                  </span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-foreground/70 mb-2">
@@ -48,8 +46,17 @@ const Home = () => {
                 
                 <div className="text-lg md:text-xl text-foreground/70 mb-8">
                   <TypingAnimation 
-                    text="I love coding, music, and exploring new technologies."
+                    texts={[
+                      "I love coding, music, and exploring new technologies.",
+                      "I build web applications with modern frameworks.",
+                      "I'm passionate about creating innovative solutions.",
+                      "I enjoy learning new programming languages.",
+                      "I create responsive and user-friendly interfaces."
+                    ]}
                     speed={80}
+                    deleteSpeed={40}
+                    pauseDuration={1500}
+                    delay={500}
                   />
                 </div>
                 
