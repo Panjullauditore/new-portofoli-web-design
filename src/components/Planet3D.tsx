@@ -60,7 +60,7 @@ const Earth = () => {
   return (
     <Sphere ref={meshRef} args={[1, 64, 64]} position={[0, 0, 0]}>
       <meshStandardMaterial
-        map={earthTexture}
+        color="#4A90E2"
         metalness={0.1}
         roughness={0.8}
       />
