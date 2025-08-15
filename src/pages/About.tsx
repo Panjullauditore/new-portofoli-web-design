@@ -182,17 +182,17 @@ const About = () => {
                     
                     {/* Social Links */}
                     <div className="flex justify-center gap-2 mb-6">
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-purple-600/10">
+                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
                         <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-purple-600/10">
+                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
                         <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer">
                           <Linkedin className="h-4 w-4" />
                         </a>
                       </Button>
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-purple-600/10">
+                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
                         <a href="mailto:ahmadfahrezir@gmail.com">
                           <Mail className="h-4 w-4" />
                         </a>
@@ -226,15 +226,15 @@ const About = () => {
                   {interests.map((interest, index) => (
                     <Card 
                       key={interest.title} 
-                      className="bg-white/5 border-gray-800/50 hover:border-purple-600/30 transition-all duration-300 hover:scale-105 group"
+                      className="bg-white/5 border-gray-800/50 hover:border-primary/30 transition-all duration-300 hover:scale-105 group"
                     >
                       <CardContent className="p-4">
                         <div className="flex items-start space-x-3">
-                          <div className="p-2 rounded-full bg-purple-600/10 group-hover:bg-purple-600/20 transition-colors duration-300">
-                            <interest.icon className="h-4 w-4 text-purple-400" />
+                          <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                            <interest.icon className="h-4 w-4 text-primary" />
                           </div>
                           <div>
-                            <h3 className="font-semibold mb-1 group-hover:text-purple-400 transition-colors duration-300">
+                            <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
                               {interest.title}
                             </h3>
                             <p className="text-gray-400 text-xs leading-relaxed">
@@ -260,7 +260,7 @@ const About = () => {
                     <Badge 
                       key={skill} 
                       variant="secondary" 
-                      className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-blue-500/10 hover:border-blue-400/50 hover:text-blue-300 hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer animate-scale-in group"
+                      className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 cursor-pointer animate-scale-in group"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
                       <span className="group-hover:animate-pulse">{skill}</span>
@@ -279,24 +279,21 @@ const About = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {songs.map((song, index) => (
-                  <Card 
+                  <div 
                     key={song.id} 
-                    className="group bg-white/5 border-gray-800/50 hover:border-purple-600/30 transition-all duration-300 hover:scale-105 overflow-hidden"
+                    className="overflow-hidden rounded-lg"
                   >
-                    <CardContent className="p-0">
-                      <div className={`bg-transparent p-4 relative`}>
-                        {/* Spotify Embed */}
-                        <iframe
-                          src={song.spotifyEmbed}
-                          width="100%"
-                          height="80"
-                          frameBorder="0"
-                          allow="encrypted-media"
-                          title={`Spotify player for ${song.title}`}
-                        ></iframe>
-                      </div>
-                    </CardContent>
-                  </Card>
+                    {/* Spotify Embed */}
+                    <iframe
+                      src={song.spotifyEmbed}
+                      width="100%"
+                      height="152"
+                      frameBorder="0"
+                      allow="encrypted-media"
+                      title={`Spotify player for ${song.title}`}
+                      className="rounded-lg"
+                    ></iframe>
+                  </div>
                 ))}
               </div>
             </div>
