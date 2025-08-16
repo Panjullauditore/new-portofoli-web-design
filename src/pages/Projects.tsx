@@ -11,39 +11,39 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, payment processing, and advanced analytics.",
-      image: "/placeholder.svg",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "TailwindCSS"],
-      github: "https://github.com",
-      live: "https://example.com",
-      featured: true
+      title: "Personal Portfolio",
+      description: "A modern portfolio website built with React and Tailwind CSS with responsive design and smooth animations.",
+      image: "/images/personal-web.jpg", // Ganti dengan nama file foto Anda
+      technologies: ["TypeScript,React", "Tailwind", "Portfolio"],
+      github: "https://github.com/Panjullauditore/new-portofoli-web-design",
+      live: "https://www.portofolio.fun/",
+      featured: false
     },
     {
       id: 2,
-      title: "Recipe Sharing Platform",
-      description: "A social platform where users can share recipes, create meal plans, and connect with fellow food enthusiasts. Features include recipe search, rating system, and meal planning tools.",
-      image: "/placeholder.svg",
-      technologies: ["Next.js", "TypeScript", "MongoDB", "Cloudinary"],
-      github: "https://github.com",
-      live: "https://example.com",
+      title: "GitHub README Generator",
+      description: "Beautiful and interactive GitHub profile README generator with modern design and glow-up effects.",
+      image: "/images/github-readme.jpg", // Ganti dengan nama file foto Anda
+      technologies: ["React", "TypeScript", "GitHub", "Markdown"],
+      github: "https://github.com/Panjullauditore/my-github-glow-up",
+      live: "https://my-github-glow-up.vercel.app/",
       featured: true
     },
     {
       id: 3,
       title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, team workspaces, and project tracking capabilities.",
-      image: "/placeholder.svg",
-      technologies: ["React", "Firebase", "Material-UI", "TypeScript"],
-      github: "https://github.com",
-      live: "https://example.com",
-      featured: false
+      description: "Collaborative task management tool with real-time updates and team features.",
+      image: "/images/task-management.jpg", // Ganti dengan nama file foto Anda
+      technologies: ["TypeScript", "React", "Tailwind CSS"],
+      github: "https://github.com/Panjullauditore/collabo-task-flow",
+      live: "https://collabo-task-flow.vercel.app/",
+      featured: true
     },
     {
       id: 4,
       title: "Weather Dashboard",
       description: "An interactive weather dashboard providing detailed forecasts, weather maps, and climate data visualization.",
-      image: "/placeholder.svg",
+      image: "/images/weather-dashboard.jpg", // Ganti dengan nama file foto Anda
       technologies: ["Vue.js", "D3.js", "OpenWeather API", "Chart.js"],
       github: "https://github.com",
       live: "https://example.com",
@@ -53,7 +53,7 @@ const Projects = () => {
       id: 5,
       title: "Personal Blog Platform",
       description: "A minimalist blog platform with markdown support, SEO optimization, and social media integration.",
-      image: "/placeholder.svg",
+      image: "/images/blog-platform.jpg", // Ganti dengan nama file foto Anda
       technologies: ["Gatsby", "GraphQL", "Netlify CMS", "Styled Components"],
       github: "https://github.com",
       live: "https://example.com",
@@ -63,7 +63,7 @@ const Projects = () => {
       id: 6,
       title: "Music Player App",
       description: "A sleek music player application with playlist management, audio visualization, and social sharing features.",
-      image: "/placeholder.svg",
+      image: "/images/music-player.jpg", // Ganti dengan nama file foto Anda
       technologies: ["React Native", "Expo", "Redux", "Web Audio API"],
       github: "https://github.com",
       live: "https://example.com",
@@ -100,6 +100,16 @@ const Projects = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
+                      {/* Project Image */}
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback jika gambar tidak ditemukan
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       <div className="absolute top-4 right-4">
                         <Badge className="bg-primary/90 text-primary-foreground">
@@ -167,6 +177,16 @@ const Projects = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted/20 relative overflow-hidden">
+                      {/* Project Image */}
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback jika gambar tidak ditemukan
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                       <div className="absolute bottom-3 left-3 right-3">
                         <div className="flex gap-2">

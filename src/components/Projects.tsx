@@ -7,66 +7,78 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce website with shopping cart, user authentication, payment integration, and admin dashboard.",
-      image: "🛒",
+      title: "Personal Portfolio",
+      description: "A modern portfolio website built with React and Tailwind CSS with responsive design and smooth animations.",
+      image: "🌐", // Emoji sebagai fallback
+      imageUrl: "/images/github-readme.jpg", // Opsi gambar (opsional)
+      useImage: true, // Set true untuk menggunakan gambar, false untuk emoji
       icon: Globe,
-      technologies: ["React", "Node.js", "Stripe API", "MongoDB"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com",
+      technologies: ["TypeScript,React", "Tailwind", "Portfolio"],
+      liveUrl: "https://www.portofolio.fun/",
+      githubUrl: "https://github.com/Panjullauditore/new-portofoli-web-design",
       featured: true
     },
     {
       id: 2,
-      title: "Recipe Sharing Platform",
-      description: "A social platform where users can share recipes, rate dishes, and create meal plans with shopping lists.",
-      image: "🍳",
+      title: "GitHub README Generator",
+      description: "Beautiful and interactive GitHub profile README generator with modern design and glow-up effects.",
+      image: "📝",
+      imageUrl: "/images/github-readme-generator.jpg",
+      useImage: true, // Akan menggunakan gambar jika tersedia
       icon: Globe,
-      technologies: ["React", "Express.js", "PostgreSQL", "Cloudinary"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com",
+      technologies: ["React", "TypeScript", "GitHub", "Markdown"],
+      liveUrl: "https://my-github-glow-up.vercel.app/",
+      githubUrl: "https://github.com/Panjullauditore/my-github-glow-up",
       featured: true
     },
     {
       id: 3,
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and featuring smooth animations and dark mode.",
-      image: "🌐",
+      title: "Task Management App",
+      description: "Collaborative task management tool with real-time updates and team features.",
+      image: "📋",
+      imageUrl: "/images/task-management-app.jpg",
+      useImage: true,
       icon: Globe,
-      technologies: ["React", "TypeScript", "TailwindCSS", "Framer Motion"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com",
+      technologies: ["TypeScript", "React", "Tailwind CSS"],
+      liveUrl: "https://collabo-task-flow.vercel.app/",
+      githubUrl: "https://github.com/Panjullauditore/collabo-task-flow",
       featured: false
     },
     {
       id: 4,
-      title: "Task Management System",
-      description: "A collaborative task management platform with real-time updates, team chat, and project analytics.",
-      image: "📋",
+      title: "Weather Dashboard",
+      description: "An interactive weather dashboard providing detailed forecasts, weather maps, and climate data visualization.",
+      image: "🌤️",
+      imageUrl: "/images/weather-dashboard.jpg",
+      useImage: true,
       icon: Globe,
-      technologies: ["Next.js", "Supabase", "TypeScript", "Prisma"],
+      technologies: ["Vue.js", "D3.js", "OpenWeather API", "Chart.js"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: false
     },
     {
       id: 5,
-      title: "Weather Dashboard",
-      description: "A responsive weather application with location search, forecasts, and beautiful weather animations.",
-      image: "🌤️",
+      title: "Personal Blog Platform",
+      description: "A minimalist blog platform with markdown support, SEO optimization, and social media integration.",
+      image: "📝",
+      imageUrl: "/images/blog-platform.jpg",
+      useImage: true,
       icon: Globe,
-      technologies: ["Vue.js", "D3.js", "Weather API", "CSS3"],
+      technologies: ["Gatsby", "GraphQL", "Netlify CMS", "Styled Components"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: false
     },
     {
       id: 6,
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      image: "🛒",
+      title: "Music Player App",
+      description: "A sleek music player application with playlist management, audio visualization, and social sharing features.",
+      image: "🎵",
+      imageUrl: "/images/music-player.jpg",
+      useImage: true,
       icon: Globe,
-      technologies: ["React", "Express.js", "Stripe", "Redis"],
+      technologies: ["React Native", "Expo", "Redux", "Web Audio API"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com",
       featured: false
@@ -75,6 +87,41 @@ const Projects = () => {
 
   const featuredProjects = projects.filter(p => p.featured);
   const otherProjects = projects.filter(p => !p.featured);
+
+  // Component untuk menampilkan gambar atau emoji
+  const ProjectVisual = ({ project, size = "large" }) => {
+    const containerClass = size === "large" 
+      ? "w-16 h-16 rounded-lg bg-muted/30 flex items-center justify-center overflow-hidden" 
+      : "w-12 h-12 rounded-lg bg-muted/30 flex items-center justify-center overflow-hidden";
+    
+    const emojiSize = size === "large" ? "text-4xl" : "text-2xl";
+
+    if (project.useImage && project.imageUrl) {
+      return (
+        <div className={containerClass}>
+          <img 
+            src={project.imageUrl} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            onError={(e) => {
+              // Fallback ke emoji jika gambar gagal load
+              const container = (e.target as HTMLImageElement).parentElement;
+              if (container) {
+                container.innerHTML = `<span class="${emojiSize}">${project.image}</span>`;
+              }
+            }}
+          />
+        </div>
+      );
+    }
+
+    // Fallback ke emoji
+    return (
+      <div className={containerClass}>
+        <span className={emojiSize}>{project.image}</span>
+      </div>
+    );
+  };
 
   return (
     <section id="projects" className="py-20 relative">
@@ -99,7 +146,7 @@ const Projects = () => {
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-4xl">{project.image}</div>
+                  <ProjectVisual project={project} size="large" />
                   <div className="flex space-x-2">
                     <Button
                       variant="ghost"
@@ -161,7 +208,7 @@ const Projects = () => {
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="text-2xl">{project.image}</div>
+                    <ProjectVisual project={project} size="small" />
                     <div className="flex space-x-1">
                       <Button
                         variant="ghost"
