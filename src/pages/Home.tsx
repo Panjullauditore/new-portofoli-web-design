@@ -6,10 +6,10 @@ import TypingAnimation from '@/components/TypingAnimation';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <main>
+    <div className="h-screen bg-background text-foreground overflow-hidden">
+      <main className="h-full">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section className="h-full flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-primary/5" />
 
           <div className="container mx-auto px-6 relative z-10">
