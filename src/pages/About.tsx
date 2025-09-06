@@ -1,6 +1,9 @@
-import { Card, CardContent } from '@/components/ui/card';
+import FloatingCard from '@/components/react-bits/FloatingCard';
+import AnimatedButton from '@/components/react-bits/AnimatedButton';
+import SplitText from '@/components/react-bits/SplitText';
+import GradientText from '@/components/react-bits/GradientText';
+import AnimatedCounter from '@/components/react-bits/AnimatedCounter';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Code, Palette, Rocket, Heart, Play, Pause, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
 import { useSpotifyPlayer } from '@/hooks/useSpotifyPlayer';
 
@@ -157,8 +160,10 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16 animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-                About Me
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                <GradientText tag="h1" animate={true}>
+                  <SplitText text="About Me" splitType="chars" delay={80} />
+                </GradientText>
               </h1>
             </div>
 
@@ -166,7 +171,7 @@ const About = () => {
             <div className="grid lg:grid-cols-3 gap-12 mb-16">
               {/* Profile Section */}
               <div className="lg:col-span-1">
-                <Card className="bg-white/5 border-gray-800/50 p-6 backdrop-blur-sm">
+                <FloatingCard className="p-6 backdrop-blur-sm" glowEffect={true} tiltEffect={true}>
                   <div className="text-center">
                     {/* Profile Image */}
                     <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border border-gray-800/20">
@@ -177,33 +182,37 @@ const About = () => {
                       />
                     </div>
                     
-                    <h2 className="text-2xl font-bold mb-2">Ahmad Fahrezi</h2>
-                    <p className="text-gray-400 mb-4">Informatics Students</p>
+                    <h2 className="text-2xl font-bold mb-2">
+                      <SplitText text="Ahmad Fahrezi" splitType="chars" delay={60} />
+                    </h2>
+                    <p className="text-gray-400 mb-4">
+                      <SplitText text="Informatics Students" splitType="words" delay={100} />
+                    </p>
                     
                     {/* Social Links */}
                     <div className="flex justify-center gap-2 mb-6">
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer">
+                      <AnimatedButton variant="ghost" size="sm" asChild>
+                        <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer" className="rounded-full hover:bg-primary/10">
                           <Github className="h-4 w-4" />
                         </a>
-                      </Button>
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer">
+                      </AnimatedButton>
+                      <AnimatedButton variant="ghost" size="sm" asChild>
+                        <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer" className="rounded-full hover:bg-primary/10">
                           <Linkedin className="h-4 w-4" />
                         </a>
-                      </Button>
-                      <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                        <a href="mailto:ahmadfahrezir@gmail.com">
+                      </AnimatedButton>
+                      <AnimatedButton variant="ghost" size="sm" asChild>
+                        <a href="mailto:ahmadfahrezir@gmail.com" className="rounded-full hover:bg-primary/10">
                           <Mail className="h-4 w-4" />
                         </a>
-                      </Button>
+                      </AnimatedButton>
                     </div>
 
                     <p className="text-gray-500 text-sm leading-relaxed">
                       Email me for any inquiries at ahmadfahrezir@gmail.com
                     </p>
                   </div>
-                </Card>
+                </FloatingCard>
               </div>
 
               {/* Description & Interests */}
@@ -224,57 +233,65 @@ const About = () => {
                 {/* Interests Grid */}
                 <div className="grid md:grid-cols-2 gap-4">
                   {interests.map((interest, index) => (
-                    <Card 
+                    <FloatingCard 
                       key={interest.title} 
-                      className="bg-white/5 border-gray-800/50 hover:border-primary/30 transition-all duration-300 hover:scale-105 group"
+                      className="p-4"
+                      glowEffect={true}
+                      tiltEffect={true}
                     >
-                      <CardContent className="p-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                            <interest.icon className="h-4 w-4 text-primary" />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
-                              {interest.title}
-                            </h3>
-                            <p className="text-gray-400 text-xs leading-relaxed">
-                              {interest.description}
-                            </p>
-                          </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                          <interest.icon className="h-4 w-4 text-primary" />
                         </div>
-                      </CardContent>
-                    </Card>
+                        <div>
+                          <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
+                            <SplitText text={interest.title} splitType="words" delay={50} />
+                          </h3>
+                          <p className="text-gray-400 text-xs leading-relaxed">
+                            {interest.description}
+                          </p>
+                        </div>
+                      </div>
+                    </FloatingCard>
                   ))}
                 </div>
               </div>
             </div>
 
             {/* Skills Section */}
-            <Card className="border-border/50 animate-fade-in mb-16">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                  Skills & Technologies
-                </h3>
-                <div className="flex flex-wrap gap-3 justify-center">
-                  {skills.map((skill, index) => (
-                    <Badge 
-                      key={skill} 
-                      variant="secondary" 
-                      className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 cursor-pointer animate-scale-in group"
-                      style={{ animationDelay: `${index * 0.05}s` }}
-                    >
-                      <span className="group-hover:animate-pulse">{skill}</span>
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <FloatingCard className="p-8 animate-fade-in mb-16" glowEffect={true}>
+              <h3 className="text-2xl font-bold mb-6 text-center">
+                <GradientText gradient="from-blue-400 to-blue-500" animate={true}>
+                  <SplitText text="Skills & Technologies" splitType="words" delay={80} />
+                </GradientText>
+              </h3>
+              <div className="flex flex-wrap gap-3 justify-center">
+                {skills.map((skill, index) => (
+                  <Badge 
+                    key={skill} 
+                    variant="secondary" 
+                    className="px-4 py-2 text-sm font-medium bg-transparent border border-gray-600/30 text-gray-300 hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-110 hover:rotate-1 hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 cursor-pointer animate-scale-in group"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  >
+                    <span className="group-hover:animate-pulse">{skill}</span>
+                  </Badge>
+                ))}
+              </div>
+            </FloatingCard>
 
             {/* My Favorite Songs */}
             <div className="mb-16">
-              <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-primary bg-clip-text text-transparent"> My Favorite Songs </h3>
+              <h3 className="text-3xl font-bold mb-8 text-center">
+                <GradientText animate={true}>
+                  <SplitText text="My Favorite Songs" splitType="words" delay={100} />
+                </GradientText>
+              </h3>
               <p className="text-center text-gray-400 mb-8">
-                When I step away from coding, music becomes my sanctuary. My playlist ranges from aespa, Le Sserafim, ILLIT, Hearts2Hearts, and NewJeans to Kendrick Lamar, Young Thug, and much more - each artist bringing a different energy to my creative process.
+                <SplitText 
+                  text="When I step away from coding, music becomes my sanctuary. My playlist ranges from aespa, Le Sserafim, ILLIT, Hearts2Hearts, and NewJeans to Kendrick Lamar, Young Thug, and much more - each artist bringing a different energy to my creative process."
+                  splitType="words"
+                  delay={30}
+                />
               </p>
               
               <div className="grid md:grid-cols-2 gap-4">

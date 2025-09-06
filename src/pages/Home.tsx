@@ -1,4 +1,7 @@
-import { Button } from '@/components/ui/button';
+import AnimatedButton from '@/components/react-bits/AnimatedButton';
+import SplitText from '@/components/react-bits/SplitText';
+import GradientText from '@/components/react-bits/GradientText';
+import ParticleBackground from '@/components/react-bits/ParticleBackground';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Planet3D from '@/components/Planet3D';
@@ -10,6 +13,7 @@ const Home = () => {
       <main className="h-full">
         {/* Hero Section */}
         <section className="h-full flex items-center justify-center relative overflow-hidden">
+          <ParticleBackground count={80} />
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-primary/5" />
 
           <div className="container mx-auto px-6 relative z-10">
@@ -17,32 +21,37 @@ const Home = () => {
               {/* Left Content */}
               <div className="text-left animate-fade-in">
                 <div className="flex items-center gap-4 mb-6">
-                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                    <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer">
+                  <AnimatedButton variant="ghost" size="sm" asChild>
+                    <a href="https://github.com/Panjullauditore" target="_blank" rel="noopener noreferrer" className="rounded-full hover:bg-primary/10">
                       <Github className="h-5 w-5" />
                     </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                    <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer">
+                  </AnimatedButton>
+                  <AnimatedButton variant="ghost" size="sm" asChild>
+                    <a href="https://www.linkedin.com/in/ahmadfahrezi7/" target="_blank" rel="noopener noreferrer" className="rounded-full hover:bg-primary/10">
                       <Linkedin className="h-5 w-5" />
                     </a>
-                  </Button>
-                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10">
-                    <a href="mailto:ahmadfahrezir@gmail.com">
+                  </AnimatedButton>
+                  <AnimatedButton variant="ghost" size="sm" asChild>
+                    <a href="mailto:ahmadfahrezir@gmail.com" className="rounded-full hover:bg-primary/10">
                       <Mail className="h-5 w-5" />
                     </a>
-                  </Button>
+                  </AnimatedButton>
                 </div>
                 
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  <span className="bg-gradient-primary bg-clip-text text-transparent">
-                    Hi, I'm Ahmad Fahrezi.
-                  </span>
+                  <GradientText tag="span" animate={true} gradient="from-primary via-primary-glow to-accent">
+                    <SplitText text="Hi, I'm Ahmad Fahrezi." splitType="chars" delay={50} />
+                  </GradientText>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-foreground/70 mb-2">
-                  Informatics Student | FullStack Developer
-                </p>
+                <SplitText 
+                  text="Informatics Student | FullStack Developer"
+                  tag="p"
+                  className="text-lg md:text-xl text-foreground/70 mb-2"
+                  splitType="words"
+                  delay={100}
+                  duration={0.8}
+                />
                 
                 <div className="text-lg md:text-xl text-foreground/70 mb-8">
                   <TypingAnimation 
@@ -61,15 +70,15 @@ const Home = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-scale-in">
-                  <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground rounded-full px-8">
-                    <Link to="/projects">
+                  <AnimatedButton variant="primary" size="lg" asChild>
+                    <Link to="/projects" className="bg-gradient-primary hover:opacity-90 text-primary-foreground rounded-full px-8">
                       View My Work
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-primary/30 hover:bg-primary/10">
-                    <Link to="/contact">Get In Touch</Link>
-                  </Button>
+                  </AnimatedButton>
+                  <AnimatedButton variant="outline" size="lg" asChild>
+                    <Link to="/contact" className="rounded-full px-8 border-primary/30 hover:bg-primary/10">Get In Touch</Link>
+                  </AnimatedButton>
                 </div>
               </div>
 
