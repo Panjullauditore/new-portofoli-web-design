@@ -231,28 +231,20 @@ export const LogoLoop = React.memo<LogoLoopProps>(
 
     useAnimationLoop(trackRef, targetVelocity, seqWidth, isHovered, pauseOnHover);
 
-    const cssVariables = useMemo(
-      () =>
-        ({
-          '--logoloop-gap': `${gap}px`,
-          '--logoloop-logoHeight': `${logoHeight}px`,
-          ...(fadeOutColor && { '--logoloop-fadeColor': fadeOutColor })
-        }) as React.CSSProperties,
-      [gap, logoHeight, fadeOutColor]
-    );
-
     const rootClasses = useMemo(
       () =>
         cx(
           'relative overflow-x-hidden group',
-          '[--logoloop-gap:32px]',
-          '[--logoloop-logoHeight:28px]',
+          `[--logoloop-gap:${gap}px]`,
+          `[--logoloop-logoHeight:${logoHeight}px]`,
           '[--logoloop-fadeColorAuto:#ffffff]',
           'dark:[--logoloop-fadeColorAuto:#0b0b0b]',
+          fadeOutColor && `[--logoloop-fadeColor:${fadeOutColor}]`,
           scaleOnHover && 'py-[calc(var(--logoloop-logoHeight)*0.1)]',
+          `w-[${typeof width === 'number' ? `${width}px` : width}]`,
           className
         ),
-      [scaleOnHover, className]
+      [gap, logoHeight, fadeOutColor, scaleOnHover, width, className]
     );
 
     const handleMouseEnter = useCallback(() => {
@@ -275,7 +267,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
               scaleOnHover &&
                 'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
             )}
-            aria-hidden={!!(item as any).href && !(item as any).ariaLabel}
+            {...(!!(item as any).href && !(item as any).ariaLabel ? { 'aria-hidden': true } : {})}
           >
             {(item as any).node}
           </span>
@@ -348,7 +340,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             className="flex items-center"
             key={`copy-${copyIndex}`}
             role="list"
-            aria-hidden={copyIndex > 0}
+            {...(copyIndex > 0 ? { 'aria-hidden': true } : {})}
             ref={copyIndex === 0 ? seqRef : undefined}
           >
             {logos.map((item, itemIndex) => renderLogoItem(item, `${copyIndex}-${itemIndex}`))}
@@ -357,20 +349,10 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       [copyCount, logos, renderLogoItem]
     );
 
-    const containerStyle = useMemo(
-      (): React.CSSProperties => ({
-        width: toCssLength(width) ?? '100%',
-        ...cssVariables,
-        ...style
-      }),
-      [width, cssVariables, style]
-    );
-
     return (
       <div
         ref={containerRef}
-        className={rootClasses}
-        style={containerStyle}
+        className={cx(rootClasses, style && Object.entries(style).map(([key, value]) => `[${key}:${value}]`).join(' '))}
         role="region"
         aria-label={ariaLabel}
         onMouseEnter={handleMouseEnter}
