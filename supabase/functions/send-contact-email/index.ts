@@ -42,7 +42,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to your gmail
     const emailResponse = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: `${name} via Portfolio <onboarding@resend.dev>`,
       replyTo: email, // User's email for easy reply
       to: ["ahmadfahrezir@gmail.com"], // Your gmail address
       subject: `Pesan dari ${name}: ${subject}`,
