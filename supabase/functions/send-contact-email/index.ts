@@ -43,8 +43,9 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to your gmail
     const emailResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
+      replyTo: email, // User's email for easy reply
       to: ["ahmadfahrezir@gmail.com"], // Your gmail address
-      subject: `Contact Form: ${subject}`,
+      subject: `Pesan dari ${name}: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">New Contact Form Message</h2>
