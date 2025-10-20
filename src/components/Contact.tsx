@@ -7,14 +7,11 @@ import { useState, useRef, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS with your public key
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     subject: '',
     message: ''
   });
@@ -57,19 +54,11 @@ const Contact = () => {
     if (!form.current) return;
 
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: "Ahmad Fahrezi",
-      };
-
-      const result = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      const result = await emailjs.sendForm(
+        'service_b40d8lp',
+        'template_rrmw50q',
+        form.current,
+        '0zsWdbHtQrfO3JWfr'
       );
 
       if (result.text !== 'OK') throw new Error('Failed to send message');
@@ -78,7 +67,7 @@ const Contact = () => {
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ from_name: '', from_email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
@@ -129,8 +118,8 @@ const Contact = () => {
                       </label>
                       <Input
                         id="name"
-                        name="name"
-                        value={formData.name}
+                        name="from_name"
+                        value={formData.from_name}
                         onChange={handleChange}
                         placeholder="Your name"
                         required
@@ -143,9 +132,9 @@ const Contact = () => {
                       </label>
                       <Input
                         id="email"
-                        name="email"
+                        name="from_email"
                         type="email"
-                        value={formData.email}
+                        value={formData.from_email}
                         onChange={handleChange}
                         placeholder="your.email@example.com"
                         required
