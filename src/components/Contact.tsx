@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -43,14 +44,39 @@ const Contact = () => {
     { icon: Mail, href: "mailto:ahmadfahrezir@gmail.com", label: "Email" },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error sending message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -150,10 +176,20 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold py-6 rounded-full shadow-glow transition-all duration-300 hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold py-6 rounded-full shadow-glow transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="h-5 w-5 mr-2 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
