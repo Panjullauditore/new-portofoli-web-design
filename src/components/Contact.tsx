@@ -7,6 +7,9 @@ import { useState, useRef, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS
+emailjs.init("0zsWdbHtQrfO3JWfr");
+
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
@@ -50,15 +53,18 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    if (!form.current) return;
 
     try {
-      const result = await emailjs.sendForm(
+      const result = await emailjs.send(
         'service_b40d8lp',
         'template_rrmw50q',
-        form.current,
-        '0zsWdbHtQrfO3JWfr'
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Ahmad Fahrezi',
+        }
       );
 
       if (result.text !== 'OK') throw new Error('Failed to send message');
@@ -68,11 +74,11 @@ const Contact = () => {
         description: "Thank you for your message. I'll get back to you soon.",
       });
       setFormData({ from_name: '', from_email: '', subject: '', message: '' });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
         title: "Error sending message",
-        description: "There was an error sending your message. Please try again or contact me directly.",
+        description: error.message || "There was an error sending your message. Please try again or contact me directly.",
         variant: "destructive"
       });
     } finally {
