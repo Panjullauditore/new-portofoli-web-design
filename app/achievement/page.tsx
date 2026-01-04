@@ -26,7 +26,7 @@ interface Achievement {
 }
 
 export default function AchievementPage() {
-    const isBlurred = false; // Toggle blur - set ke false untuk menghilangkan blur
+    const isBlurred = true; // Toggle blur - set ke false untuk menghilangkan blur
 
     const achievements: Achievement[] = [
         {

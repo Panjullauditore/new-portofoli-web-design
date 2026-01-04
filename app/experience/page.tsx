@@ -9,7 +9,7 @@ import { CharReveal } from '@/components/animations/TextReveal';
 import { StaggerContainer, StaggerItem } from '@/components/animations/StaggeredCards';
 
 export default function ExperiencePage() {
-    const isBlurred = false; // Toggle blur - set ke false untuk menghilangkan blur
+    const isBlurred = true; // Toggle blur - set ke false untuk menghilangkan blur
 
     const experiences = [
         {

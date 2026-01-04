@@ -12,7 +12,7 @@ import { StaggerContainer, StaggerItem } from '@/components/animations/Staggered
 import { MagneticButton } from '@/components/animations/MagneticButton';
 
 export default function ProjectsPage() {
-    const isBlurred = false; // Toggle blur - set ke false untuk menghilangkan blur
+    const isBlurred = true; // Toggle blur - set ke false untuk menghilangkan blur
 
     const projects = [
         {
